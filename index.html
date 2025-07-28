@@ -16,7 +16,7 @@
     t.src='https://connect.facebook.net/en_US/fbevents.js';
     s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script');
-    fbq('init', 'PIXEL_ID_AQUI'); // Substitua pelo seu ID do Pixel
+    fbq('init', 'PIXEL_ID_AQUI'); // Substitua aqui pelo seu ID do Pixel
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -29,11 +29,18 @@
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
     body {background-color: #000; color: #fff; line-height: 1.6;}
-    header {text-align: center; padding: 60px 20px; background: #111;}
+    a {text-decoration: none;}
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: #111;
+    }
     header h1 {font-size: 2em; margin-bottom: 20px;}
     header p {font-size: 1.1em; color: #ccc;}
+
     .cta-button {
-      background-color: #00e600;
+      background-color: #00FF00;
       color: #000;
       font-weight: bold;
       padding: 15px 25px;
@@ -45,30 +52,102 @@
       display: inline-block;
       border-radius: 8px;
     }
-    section {padding: 60px 20px; text-align: center;}
-    .about-section, .creator-section, .guarantee, .faq {background: #111;}
-    h2 {margin-bottom: 20px; font-size: 1.6em;}
-    .testimonials img { max-width: 250px; width: 100%; height: auto; border-radius: 8px; margin: 10px; }
-    .creator-section img {width: 200px; border-radius: 8px; margin-top: 20px;}
-    .price h3 {font-size: 2.5em; margin: 20px 0; color: #00ff00;}
-    .faq-item {margin: 20px auto; max-width: 600px; text-align: left;}
-    .faq-item summary {font-weight: bold; font-size: 1.1em; cursor: pointer;}
-    .faq-item p {margin-top: 10px; color: #ccc;}
-    footer {background: #220022; font-size: 0.9em; padding: 20px; text-align: center;}
 
     .video-about-container {
+      background-color: #4B0055;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-section iframe {
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .about-section {
+      max-width: 500px;
+    }
+    .about-section h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .about-section p {
+      font-size: 1.1em;
+      color: #ddd;
+    }
+
+    .creator-section {
+      background: #000;
+      padding: 60px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 40px;
     }
-    .video-section iframe {border-radius: 10px; max-width: 100%;}
+    .creator-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .creator-text, .creator-img {
+      flex: 1;
+    }
+    .creator-text h2 {
+      font-size: 1em;
+      text-transform: uppercase;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+    .creator-text h3 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    .creator-text p {
+      font-size: 1.1em;
+      color: #ccc;
+    }
+    .creator-img img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+      border: 5px solid white;
+    }
+
+    .price, .faq, .guarantee, .testimonials {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .price h3 {
+      font-size: 2.5em;
+      margin: 20px 0;
+      color: #00ff00;
+    }
+
+    .faq-item {margin: 20px auto; max-width: 600px; text-align: left;}
+    .faq-item summary {font-weight: bold; font-size: 1.1em; cursor: pointer;}
+    .faq-item p {margin-top: 10px; color: #ccc;}
+
+    .testimonials img {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 10px;
+    }
 
     .guarantee-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: 20px;
       text-align: center;
     }
@@ -79,18 +158,27 @@
       max-width: 400px;
     }
 
+    footer {
+      background: #220022;
+      font-size: 0.9em;
+      padding: 20px;
+      text-align: center;
+    }
+
     @media (min-width: 768px) {
       .video-about-container {
         flex-direction: row;
         justify-content: center;
+        align-items: flex-start;
+      }
+      .creator-inner {
+        flex-direction: row;
+        justify-content: space-between;
       }
       .about-section p {
         text-align: left;
-        max-width: 500px;
       }
-      .guarantee-container {
-        flex-direction: row;
-        justify-content: center;
+      .creator-text {
         text-align: left;
       }
     }
@@ -100,12 +188,13 @@
   <header>
     <h1>APRENDA O MÉTODO QUE TEM AJUDADO MILHARES DE BRASILEIROS A RECUPERAR O CRÉDITO E FORTALECER O SCORE DE FORMA RÁPIDA 100% LEGAL E ACESSÍVEL.</h1>
     <p>Saiba como pode recuperar seu crédito e conquiste novamente a oportunidade de ter cartões de crédito, nome limpo em qualquer banco.</p>
-    <a href="https://go.hotmart.com/D101059452Y?ap=4ed5" class="cta-button" aria-label="Quero começar agora">SIM! QUERO COMEÇAR AGORA!</a>
+    <a href="https://go.hotmart.com/D101059452Y?ap=4ed5" class="cta-button">SIM! QUERO COMEÇAR AGORA!</a>
   </header>
 
   <section class="video-about-container">
     <div class="video-section">
       <iframe width="360" height="215" src="https://www.youtube.com/embed/5IoWBgUMOzY?autoplay=1&mute=1" frameborder="0" allowfullscreen loading="lazy" title="Vídeo Altíssimo Score"></iframe>
+      <a href="https://go.hotmart.com/D101059452Y?ap=4ed5" class="cta-button">SIM! QUERO COMEÇAR AGORA!</a>
     </div>
     <section class="about-section">
       <h2>SOBRE O CONTEÚDO</h2>
@@ -114,10 +203,16 @@
   </section>
 
   <section class="creator-section">
-    <h2>CONHEÇA MELHOR QUEM CRIOU O CONTEÚDO</h2>
-    <h3>Álvaro Pimentel</h3>
-    <p>Especialista em crédito com 12 anos de experiência ajudando pessoas a aumentarem seus scores, ampliarem limites de cartão e obterem financiamentos. Não deixe a burocracia financeira atrapalhar sua vida.</p>
-    <img src="https://static-media.hotmart.com/Wfwlnr8jrKQwYBtIbh8HPpATjG0=/filters:quality(100):format(webp)/klickart-prod/uploads/media/file/8002106/foto_de_home_score.jpg" alt="Foto Álvaro Pimentel">
+    <div class="creator-inner">
+      <div class="creator-text">
+        <h2>CONHEÇA MELHOR QUEM CRIOU O CONTEÚDO</h2>
+        <h3>Álvaro Pimentel</h3>
+        <p>Descubra como realizar seus sonhos financeiros com nosso especialista em crédito, que tem 12 anos de experiência ajudando pessoas a aumentarem seus scores, ampliarem limites de cartão e obterem financiamentos. Não deixe que a burocracia financeira atrapalhe sua vida.</p>
+      </div>
+      <div class="creator-img">
+        <img src="https://static-media.hotmart.com/Wfwlnr8jrKQwYBtIbh8HPpATjG0=/filters:quality(100):format(webp)/klickart-prod/uploads/media/file/8002106/foto_de_home_score.jpg" alt="Foto Álvaro Pimentel">
+      </div>
+    </div>
   </section>
 
   <section class="testimonials">
@@ -141,7 +236,7 @@
     <h2>DE R$ 97,00 POR APENAS</h2>
     <h3>R$ 34,90</h3>
     <p>Ou em até 3x no cartão de crédito. Pagamento 100% seguro com acesso imediato.</p>
-    <a href="https://go.hotmart.com/D101059452Y?ap=4ed5" class="cta-button" aria-label="Comprar agora">QUERO COMEÇAR AGORA!</a>
+    <a href="https://go.hotmart.com/D101059452Y?ap=4ed5" class="cta-button">QUERO COMEÇAR AGORA!</a>
   </section>
 
   <section class="faq">
