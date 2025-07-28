@@ -185,6 +185,19 @@ src="https://www.facebook.com/tr?id=1277631497368899&ev=PageView&noscript=1"
         text-align: left;
       }
     }
+
+    #timer-container {
+  margin-top: 20px;
+  text-align: center;
+ 
+}
+
+#timer {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #00FF00;
+  
+}
   </style>
 </head>
 <body>
@@ -193,6 +206,15 @@ src="https://www.facebook.com/tr?id=1277631497368899&ev=PageView&noscript=1"
     <p>Saiba como pode recuperar seu crédito e conquiste novamente a oportunidade de ter cartões de crédito, nome limpo em qualquer banco.</p>
     <a href="https://go.hotmart.com/D101059452Y?ap=4ed5" class="cta-button">SIM! QUERO COMEÇAR AGORA!</a>
   </header>
+
+
+  <div id="timer-container">
+  <div id="timer">
+    Promoção termina em: <span id="countdown">15:00</span>
+   
+  </div>
+</div>
+
 
   <section class="video-about-container">
     <div class="video-section">
@@ -257,6 +279,26 @@ src="https://www.facebook.com/tr?id=1277631497368899&ev=PageView&noscript=1"
 
   <!-- Rastreamento de clique para evento Lead -->
   <script>
+
+    let duration = 15 * 60; // 15 minutos em segundos
+  const countdownEl = document.getElementById('countdown');
+
+  function updateCountdown() {
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+    countdownEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    if (duration > 0) {
+      duration--;
+    } else {
+      clearInterval(timerInterval);
+      countdownEl.textContent = "00:00";
+      document.getElementById('timer').innerHTML = "<span style='color: red;'>Promoção encerrada!</span>";
+      // Aqui você pode ocultar botões ou desativar links se quiser.
+    }
+  }
+
+  updateCountdown();
+  const timerInterval = setInterval(updateCountdown, 1000);
     document.querySelectorAll('.cta-button').forEach(btn => {
       btn.addEventListener('click', () => {
         if (typeof fbq === 'function') {
